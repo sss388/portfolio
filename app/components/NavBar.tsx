@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import {AppBar, Toolbar, Typography, useScrollTrigger} from "@mui/material";
+import {AppBar, Box, Button, Toolbar, Typography, useScrollTrigger} from "@mui/material";
 
 const NavBar = () => {
     const scroll = useScrollTrigger({
@@ -9,9 +9,19 @@ const NavBar = () => {
         threshold: 0 // 스크롤 위치가 0일 때만 true 반환
     });
 
+    const navItems = ['AboutMe', 'Skills', 'Projects'];
+
+    const scrollToSection = (section: string) => {
+        switch (section) {
+            case 'AboutMe': scrollTo(0, 550); break;
+            case 'Skills': scrollTo(0, 1010); break;
+            case 'Projects': scrollTo(0, 2710); break;
+        }
+    };
+
     return (
         <AppBar color={`${scroll ? 'primary' : 'transparent'}`}>
-            <Toolbar>
+            <Toolbar className="justify-between flex">
                 <Typography
                     noWrap
                     sx={{
@@ -26,6 +36,13 @@ const NavBar = () => {
                 >
                     SSS's Portfolio
                 </Typography>
+                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                    {navItems.map((item) => (
+                        <Button key={item} sx={{ color: 'inherit' }} onClick={() => scrollToSection(item)}>
+                            {item}
+                        </Button>
+                    ))}
+                </Box>
             </Toolbar>
         </AppBar>
     );

@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react';
-import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import {Box, Divider} from "@mui/material";
 import {CalendarMonth, Edit, Email, LocationOn, Person, Smartphone} from "@mui/icons-material";
 
-const AboutMe = () => {
+const AboutMeSection = () => {
     return (
         <div className="p-20 justify-center flex">
             <div>
@@ -74,4 +73,4 @@ const AboutMe = () => {
     );
 };
 
-export default AboutMe;
+export default AboutMeSection;
