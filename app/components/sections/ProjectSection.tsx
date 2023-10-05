@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import {Box, Divider, Typography} from "@mui/material";
 import { Navigation } from 'swiper/modules';

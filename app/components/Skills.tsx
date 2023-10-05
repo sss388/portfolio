@@ -3,13 +3,12 @@
 import React from 'react';
 import {Box, Card, Divider, IconButton, Tooltip, Typography} from "@mui/material";
 import {color} from "@mui/system";
-import { Navigation } from 'swiper/modules';
+import {Autoplay, Navigation} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/public/skills/slide.css'
-import {isUndefined} from "util";
 
 interface SkillsProps {
     skills: string[];
@@ -22,7 +21,14 @@ const Skills: React.FC<SkillsProps> = ({
 
     return (
         <div className={`p-4 flex items-center h-[150px] bg-white relative rounded-lg`}>
-            <Swiper navigation={true} modules={[Navigation]}>
+            <Swiper
+                navigation={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: true,
+                }}
+                modules={[Navigation, Autoplay]}
+            >
                 {Array.from({length: Math.ceil(skills.length/slideCut)}, (_, index) => (
                     <SwiperSlide className="gap-3" key={index}>
                         {Array.from({length: slideCut}, (_, index2) => {

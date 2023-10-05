@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import {Box, Divider, Typography} from "@mui/material";
 import Skills from "@/app/components/Skills";
